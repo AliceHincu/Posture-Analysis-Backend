@@ -1,9 +1,9 @@
 import express from "express";
 import { random, authentication } from "../helpers";
-import { getUserBySessionToken } from "../actions/userActions";
+import { getUserBySessionToken } from "../../use-cases/actions/userActions";
 
 // controllers/authController.js
-const User = require("../models/user"); // Point to your user model file
+const User = require("../../entities/models/User"); // Point to your user model file
 
 // Login Controller
 export const login = async (req: express.Request, res: express.Response) => {

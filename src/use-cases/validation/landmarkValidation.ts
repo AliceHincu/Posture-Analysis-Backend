@@ -1,5 +1,5 @@
-import { LandmarkDict, LandmarkDictSchema, POSE_LANDMARKS } from "../types/postureProcessing";
-import { ResponseData } from "../types/communicationSocket";
+import { LandmarkDict, LandmarkDictSchema, POSE_LANDMARKS } from "../../entities/types/postureProcessing";
+import { ResponseData } from "../../entities/types/communicationSocket";
 import { messageFactory } from "../utilities/MessageFactory";
 
 export const validateLandmarks = (data: LandmarkDict): ResponseData => {

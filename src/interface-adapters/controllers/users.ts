@@ -1,6 +1,6 @@
 import express from "express";
 
-import { deleteUserById, getUserById, getUsers } from "../actions/userActions";
+import { deleteUserById, getUserById, getUsers } from "../../use-cases/actions/userActions";
 
 export const getAllUsers = async (req: express.Request, res: express.Response) => {
   try {

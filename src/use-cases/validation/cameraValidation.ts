@@ -1,6 +1,6 @@
 import { messageFactory } from "../utilities/MessageFactory";
-import { findAngle3, findDistance, findDistanceLandmarks } from "../services/math";
-import { LandmarkDict, POSE_LANDMARKS } from "../types/postureProcessing";
+import { findAngle3, findDistance, findDistanceLandmarks } from "../utilities/math";
+import { LandmarkDict, POSE_LANDMARKS } from "../../entities/types/postureProcessing";
 
 export const validateCameraAnterior = (landmarks: LandmarkDict) => {
   return isUserFacingCamera(landmarks)

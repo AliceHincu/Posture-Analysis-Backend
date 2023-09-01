@@ -1,7 +1,12 @@
-import { messageFactory } from "../utilities/MessageFactory";
-import { SocketData, ResponseData, ClientToServerEvents, ServerToClientEvents } from "../types/communicationSocket";
-import { LandmarkDict, LandmarkDictSchema } from "../types/postureProcessing";
-import { validateLandmarks } from "../validation/landmarkValidation";
+import { messageFactory } from "../../use-cases/utilities/MessageFactory";
+import {
+  SocketData,
+  ResponseData,
+  ClientToServerEvents,
+  ServerToClientEvents,
+} from "../../entities/types/communicationSocket";
+import { LandmarkDict, LandmarkDictSchema } from "../../entities/types/postureProcessing";
+import { validateLandmarks } from "../../use-cases/validation/landmarkValidation";
 import { Socket } from "socket.io";
 
 export const handleCalibration = async (

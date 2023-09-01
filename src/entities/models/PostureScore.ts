@@ -1,5 +1,5 @@
 const { DataTypes, Model } = require("sequelize");
-import { sequelize } from "../config/database";
+import { sequelize } from "../../frameworks-and-drivers/config/database";
 
 class PostureScore extends Model {}
 

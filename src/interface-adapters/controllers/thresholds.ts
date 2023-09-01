@@ -1,13 +1,18 @@
 import { Socket } from "socket.io";
-import { ClientToServerEvents, ServerToClientEvents, SocketData, ResponseData } from "../types/communicationSocket";
-import { messageFactory } from "../utilities/MessageFactory";
+import {
+  ClientToServerEvents,
+  ServerToClientEvents,
+  SocketData,
+  ResponseData,
+} from "../../entities/types/communicationSocket";
+import { messageFactory } from "../../use-cases/utilities/MessageFactory";
 import {
   PostureView,
   THRESHOLD_VALUES_ANTERIOR,
   THRESHOLD_VALUES_LATERAL,
   ThresholdStrictness,
   ThresholdStrictnessSchema,
-} from "../types/postureProcessing";
+} from "../../entities/types/postureProcessing";
 
 export const handleThresholds = async (
   receivedData: any,

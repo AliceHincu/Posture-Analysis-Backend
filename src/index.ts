@@ -13,22 +13,23 @@ import compression from "compression";
 import cors from "cors";
 import { Server, Socket } from "socket.io";
 
-import router from "./router";
-import { handleAnalyzeCamera, handleAnalyzePosture } from "./controllers/processPose";
+import router from "./interface-adapters/routers";
 import {
   ClientToServerEventNames,
   ClientToServerEvents,
   ServerToClientEventNames,
   ServerToClientEvents,
   SocketData,
-} from "./types/communicationSocket";
-import { PostureView, THRESHOLD_VALUES_ANTERIOR, THRESHOLD_VALUES_LATERAL } from "./types/postureProcessing";
-import { handlePostureView } from "./controllers/postureView";
-import { handleCalibration } from "./controllers/calibration";
-import { messageFactory } from "./utilities/MessageFactory";
-import { handleSocketDisconnection } from "./controllers/disconnect";
-import { handleThresholds } from "./controllers/thresholds";
-import { handleStart, handleScore, calculateScore, createPostureScore } from "./controllers/postureScores";
+} from "./entities/types/communicationSocket";
+import { setupSocketEvents } from "./interface-adapters/controllers/websocket";
+import { handleCalibration } from "interface-adapters/controllers/calibration";
+import { handleSocketDisconnection } from "interface-adapters/controllers/disconnect";
+import { handleScore, handleStart } from "interface-adapters/controllers/postureScores";
+import { handlePostureView } from "interface-adapters/controllers/postureView";
+import { handleAnalyzePosture, handleAnalyzeCamera } from "interface-adapters/controllers/processPose";
+import { handleThresholds } from "interface-adapters/controllers/thresholds";
+import { messageFactory } from "use-cases/utilities/MessageFactory";
+import { PostureView, THRESHOLD_VALUES_ANTERIOR } from "entities/types/postureProcessing";
 
 const app = express();
 
@@ -52,7 +53,13 @@ const io = new Server(server, {
 });
 
 const socketDataMap = new Map<string, SocketData>();
-const initializeSocketData = (socket: Socket<ClientToServerEvents, ServerToClientEvents>) => {
+
+// setupSocketEvents(io, socketDataMap);
+
+const initializeSocketData = (
+  socket: Socket<ClientToServerEvents, ServerToClientEvents>,
+  socketDataMap: Map<string, SocketData>
+) => {
   socketDataMap.set(socket.id, {
     postureView: PostureView.ANTERIOR,
     thresholds: THRESHOLD_VALUES_ANTERIOR["Moderate"],
@@ -63,11 +70,10 @@ const initializeSocketData = (socket: Socket<ClientToServerEvents, ServerToClien
     startTime: null,
   });
 };
-
 io.on("connection", (socket: Socket<ClientToServerEvents, ServerToClientEvents>) => {
   console.log("=== An user connected ===");
 
-  initializeSocketData(socket);
+  initializeSocketData(socket, socketDataMap);
 
   socket.on(ClientToServerEventNames.AnalyzePosture, async (data) => {
     try {
@@ -120,7 +126,4 @@ io.on("connection", (socket: Socket<ClientToServerEvents, ServerToClientEvents>)
   });
 });
 
-server.listen(8080, () => {
-  console.log("Server running on http://localhost:8080/");
-});
 app.use("/", router());

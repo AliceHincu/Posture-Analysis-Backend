@@ -1,12 +1,17 @@
 import { Socket } from "socket.io";
-import { ClientToServerEvents, ResponseData, ServerToClientEvents, SocketData } from "../types/communicationSocket";
+import {
+  ClientToServerEvents,
+  ResponseData,
+  ServerToClientEvents,
+  SocketData,
+} from "../../entities/types/communicationSocket";
 import {
   PostureView,
   PostureViewSchema,
   THRESHOLD_VALUES_ANTERIOR,
   THRESHOLD_VALUES_LATERAL,
-} from "../types/postureProcessing";
-import { messageFactory } from "../utilities/MessageFactory";
+} from "../../entities/types/postureProcessing";
+import { messageFactory } from "../../use-cases/utilities/MessageFactory";
 
 export const handlePostureView = async (
   receivedData: any,

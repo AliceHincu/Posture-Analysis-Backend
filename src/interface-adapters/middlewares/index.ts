@@ -1,4 +1,4 @@
-import { getUserBySessionToken } from "../actions/userActions";
+import { getUserBySessionToken } from "../../use-cases/actions/userActions";
 import express from "express";
 import { get, merge } from "lodash";
 

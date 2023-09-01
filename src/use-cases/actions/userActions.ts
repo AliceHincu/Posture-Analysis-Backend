@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../../entities/models/User");
 
 // User Actions
 export const getUsers = () => User.findAll();

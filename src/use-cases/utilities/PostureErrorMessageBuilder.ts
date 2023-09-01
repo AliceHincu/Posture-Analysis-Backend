@@ -1,4 +1,4 @@
-import { ErrorDetails, ErrorDetailsAnterior, ErrorDetailsLateral } from "types/communicationSocket";
+import { ErrorDetails, ErrorDetailsAnterior, ErrorDetailsLateral } from "entities/types/communicationSocket";
 import { messageFactory } from "./MessageFactory";
 
 /**

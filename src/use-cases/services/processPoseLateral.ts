@@ -1,8 +1,8 @@
 import { LateralPostureErrorMessageBuilder } from "../utilities/PostureErrorMessageBuilder";
-import { ResponseData } from "../types/communicationSocket";
-import { LandmarkDict, POSE_LANDMARKS, ThresholdsLateral } from "../types/postureProcessing";
+import { ResponseData } from "../../entities/types/communicationSocket";
+import { LandmarkDict, POSE_LANDMARKS, ThresholdsLateral } from "../../entities/types/postureProcessing";
 import { messageFactory } from "../utilities/MessageFactory";
-import { findAngle2 } from "./math";
+import { findAngle2 } from "../utilities/math";
 
 export const processPoseLateral = async (
   receivedData: LandmarkDict,

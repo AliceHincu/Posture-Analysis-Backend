@@ -1,7 +1,7 @@
 import { messageFactory } from "../utilities/MessageFactory";
-import { ResponseData } from "../types/communicationSocket";
-import { LandmarkDict, POSE_LANDMARKS, ThresholdsAnterior } from "../types/postureProcessing";
-import { getAngleDegrees } from "./math";
+import { ResponseData } from "../../entities/types/communicationSocket";
+import { LandmarkDict, POSE_LANDMARKS, ThresholdsAnterior } from "../../entities/types/postureProcessing";
+import { getAngleDegrees } from "../utilities/math";
 import { AnteriorPostureErrorMessageBuilder } from "../utilities/PostureErrorMessageBuilder";
 
 const HEAD_TURNED_THRESHOLD = 0.05;

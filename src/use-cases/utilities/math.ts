@@ -1,4 +1,4 @@
-import { Landmark } from "types/postureProcessing";
+import { Landmark } from "entities/types/postureProcessing";
 
 /**
  * Determine the offset distance between two points.

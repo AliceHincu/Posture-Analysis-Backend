@@ -1,6 +1,6 @@
 import { Op } from "sequelize";
 
-const PostureScore = require("../models/PostureScore");
+const PostureScore = require("../../entities/models/PostureScore");
 
 // PostureScore Actions
 export const getScoresByUserId = async (userId: string) => {

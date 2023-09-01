@@ -1,10 +1,15 @@
 import express from "express";
-import { createScore, getScoresByUserId, getScoresByUserIdAndDate } from "../actions/postureScoreActions";
+import { createScore, getScoresByUserId, getScoresByUserIdAndDate } from "../../use-cases/actions/postureScoreActions";
 import { Socket } from "socket.io";
-import { ClientToServerEvents, ServerToClientEvents, SocketData, ResponseData } from "../types/communicationSocket";
-import { messageFactory } from "../utilities/MessageFactory";
+import {
+  ClientToServerEvents,
+  ServerToClientEvents,
+  SocketData,
+  ResponseData,
+} from "../../entities/types/communicationSocket";
+import { messageFactory } from "../../use-cases/utilities/MessageFactory";
 import moment from "moment-timezone";
-import { getUserBySessionToken } from "../actions/userActions";
+import { getUserBySessionToken } from "../../use-cases/actions/userActions";
 
 // Create Score Controller
 export const handleScore = async (

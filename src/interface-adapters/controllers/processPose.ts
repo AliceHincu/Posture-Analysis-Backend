@@ -1,6 +1,6 @@
 import { Socket } from "socket.io";
-import { validateReceivedLandmarks } from "../validation/landmarkValidation";
-import { PostureView, ThresholdsAnterior, ThresholdsLateral } from "../types/postureProcessing";
+import { validateReceivedLandmarks } from "../../use-cases/validation/landmarkValidation";
+import { PostureView, ThresholdsAnterior, ThresholdsLateral } from "../../entities/types/postureProcessing";
 import {
   ClientToServerEvents,
   ErrorDetails,
@@ -8,10 +8,10 @@ import {
   ResponseData,
   ServerToClientEvents,
   SocketData,
-} from "../types/communicationSocket";
-import { processPoseAnterior } from "../services/processPoseAnterior";
-import { processPoseLateral } from "../services/processPoseLateral";
-import { validateCameraAnterior, validateCameraLateral } from "../validation/cameraValidation";
+} from "../../entities/types/communicationSocket";
+import { processPoseAnterior } from "../../use-cases/services/processPoseAnterior";
+import { processPoseLateral } from "../../use-cases/services/processPoseLateral";
+import { validateCameraAnterior, validateCameraLateral } from "../../use-cases/validation/cameraValidation";
 
 /**
  * Analyzes the posture of the client
