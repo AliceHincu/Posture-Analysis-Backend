@@ -21,7 +21,7 @@ const isUserFacingCamera = (
   EYE_SYMMETRY_THRESHOLD = 0.02,
   SHOULDER_THRESHOLD = 0.2
 ): boolean => {
-  // in case it is lateral:
+  // in case it is lateral because the fromulas down there also identify lateral as good
   const leftShoulder = landmarks[POSE_LANDMARKS.LEFT_SHOULDER];
   const rightShoulder = landmarks[POSE_LANDMARKS.RIGHT_SHOULDER];
   const shoulderDistance = findDistanceLandmarks(leftShoulder, rightShoulder);
