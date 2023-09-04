@@ -34,7 +34,6 @@ export const getScoresByUserIdAndDate = async (userId: string, parsedDate: Date,
 };
 
 export const createScore = async (values: Record<string, any>) => {
-  console.log(values);
   const score = await PostureScore.create(values);
   return score;
 };

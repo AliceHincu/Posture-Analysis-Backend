@@ -3,14 +3,17 @@ const express = require("express");
 const chai = require("chai");
 const expect = chai.expect;
 
+POSTGRES_URL =
+  "postgres://default:Jtc8DSwpoHf9@ep-red-dust-59248805-pooler.eu-central-1.postgres.vercel-storage.com:5432/verceldb";
 const Sequelize = require("sequelize");
-const DB_NAME = "Posture-Analysis";
-const DB_USER = "postgres";
-const DB_PASSWORD = "newpassword";
-const DB_HOST = "localhost";
-const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
-  host: DB_HOST,
+const sequelize = new Sequelize(POSTGRES_URL, {
   dialect: "postgres",
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, // <<<<<<< YOU NEED THIS TO FIX UNHANDLED PROMISE REJECTION
+    },
+  },
 });
 
 const { DataTypes, Model } = require("sequelize");
@@ -44,7 +47,6 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    console.log(email, password);
     if (!email || !password) {
       return res.sendStatus(400);
     }
@@ -70,7 +72,6 @@ const login = async (req, res) => {
 
     return res.status(200).json(user).end();
   } catch (error) {
-    console.log(error);
     return res.sendStatus(400);
   }
 };

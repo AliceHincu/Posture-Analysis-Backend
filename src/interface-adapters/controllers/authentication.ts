@@ -15,7 +15,6 @@ export const login = async (req: express.Request, res: express.Response) => {
     }
 
     const user = await User.findOne({ where: { email } });
-
     if (!user) {
       return res.sendStatus(404);
     }
@@ -32,6 +31,7 @@ export const login = async (req: express.Request, res: express.Response) => {
     await user.save();
 
     res.cookie("ALICE-AUTH", user.sessionToken, { domain: "localhost", path: "/" });
+    // res.cookie("ALICE-AUTH", user.sessionToken);
 
     return res.status(200).json(user).end();
   } catch (error) {

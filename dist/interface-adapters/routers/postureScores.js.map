@@ -1,0 +1,1 @@
+{"version":3,"file":"postureScores.js","sourceRoot":"","sources":["../../../src/interface-adapters/routers/postureScores.ts"],"names":[],"mappings":";;AACA,gEAAuG;AACvG,gDAAiD;AAEjD,kBAAe,CAAC,MAAsB,EAAE,EAAE;IACxC,MAAM,CAAC,GAAG,CAAC,uBAAuB,EAAE,6BAAe,EAAE,uCAAuB,CAAC,CAAC;IAC9E,MAAM,CAAC,GAAG,CAAC,6BAA6B,EAAE,6BAAe,EAAE,8CAA8B,CAAC,CAAC;AAC7F,CAAC,CAAC"}

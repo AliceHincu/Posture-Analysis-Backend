@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "nodemon",
-    "test": "mocha --require ts-node/register test.js"
+    "dev": "nodemon",
+    "start": "node dist/index.js",
+    "test": "mocha --require ts-node/register test.js",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +27,7 @@
     "nodemon": "^3.0.1",
     "supertest": "^6.3.3",
     "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
+    "typescript": "5.1.6"
   },
   "dependencies": {
     "@types/jest": "^29.5.4",

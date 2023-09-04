@@ -23,7 +23,6 @@ export const handleScore = async (
       return messageFactory.getMessage("SCORE_NOT_SET");
     }
 
-    console.log(socketData);
     const score = calculateScore(socketData.goodFrames, socketData.badFrames);
     const response = { error: false, message: score.toString() };
     const token = receivedData as string;
