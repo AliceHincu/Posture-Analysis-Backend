@@ -13,23 +13,15 @@ import compression from "compression";
 import cors from "cors";
 import { Server, Socket } from "socket.io";
 
-import router from "./interface-adapters/routers";
+import router from "../src/interface-adapters/routers";
 import {
   ClientToServerEventNames,
   ClientToServerEvents,
   ServerToClientEventNames,
   ServerToClientEvents,
   SocketData,
-} from "./entities/types/communicationSocket";
-import { setupSocketEvents } from "./interface-adapters/controllers/websocket";
-import { handleCalibration } from "./interface-adapters/controllers/calibration";
-import { handleSocketDisconnection } from "./interface-adapters/controllers/disconnect";
-import { handleScore, handleStart } from "./interface-adapters/controllers/postureScores";
-import { handlePostureView } from "./interface-adapters/controllers/postureView";
-import { handleAnalyzePosture, handleAnalyzeCamera } from "./interface-adapters/controllers/processPose";
-import { handleThresholds } from "./interface-adapters/controllers/thresholds";
-import { messageFactory } from "./use-cases/utilities/MessageFactory";
-import { PostureView, THRESHOLD_VALUES_ANTERIOR } from "./entities/types/postureProcessing";
+} from "../src/entities/types/communicationSocket";
+import { setupSocketEvents } from "../src/interface-adapters/controllers/websocket";
 
 const app = express();
 
