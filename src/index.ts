@@ -27,7 +27,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3000", // replace with the URL of your frontend
+    origin: "*",
     credentials: true,
   })
 );
@@ -39,7 +39,7 @@ app.use(bodyParser.json());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
