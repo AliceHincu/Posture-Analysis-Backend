@@ -27,7 +27,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["postureflawless.com", "localhost:3000"],
+    origin: ["https://postureflawless.com", "http://localhost:3000"],
     credentials: true,
   })
 );
@@ -39,7 +39,7 @@ app.use(bodyParser.json());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["postureflawless.com", "localhost:3000"],
+    origin: ["https://postureflawless.com", "http://localhost:3000"],
     methods: ["GET", "POST"],
   },
 });
