@@ -68,7 +68,7 @@ const login = async (req, res) => {
 
     await user.save();
 
-    res.cookie("ALICE-AUTH", user.sessionToken, { domain: "localhost", path: "/" });
+    res.cookie("ALICE-AUTH", user.sessionToken);
 
     return res.status(200).json(user).end();
   } catch (error) {
